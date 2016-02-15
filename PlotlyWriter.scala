@@ -4,7 +4,7 @@ import scala.concurrent.Future
 import scala.concurrent.ExecutionContext.Implicits.global
 
 import org.joda.time.Instant
-import org.joda.time.format.ISODateTimeFormat
+import org.joda.time.format.DateTimeFormat
 
 trait PlotlyWriter {
 
@@ -14,8 +14,8 @@ trait PlotlyWriter {
 
   private def request(time: Instant, value: BigDecimal):HttpRequest = {
     val plotlyUrl = "https://plot.ly/clientresp"
-    val fmt = ISODateTimeFormat.dateHourMinute
-    val timeStr = time.toString(fmt).replace("T", " ")
+    val fmt = DateTimeFormat.forPattern("yyyy-MM-dd hh:mm")
+    val timeStr = time.toString(fmt)
     val request = Http(plotlyUrl).postForm(Seq(
       "un" -> username,
       "key" -> key,
