@@ -12,7 +12,7 @@ trait PlotlyWriter {
   def key: String
   def filename: String
 
-  private def request(time: Instant, value: BigDecimal):HttpRequest = {
+  private def request(time: Instant, value: BigDecimal): HttpRequest = {
     val plotlyUrl = "https://plot.ly/clientresp"
     val fmt = DateTimeFormat.forPattern("yyyy-MM-dd hh:mm")
     val timeStr = time.toString(fmt)
