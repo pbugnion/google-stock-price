@@ -2,8 +2,6 @@ FROM java:8
 
 RUN apt-get update -y
 
-RUN apt-get install -y cron
-
 ENV SCALA_VERSION 2.11.7
 
 # Install Scala
