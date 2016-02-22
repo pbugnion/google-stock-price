@@ -17,7 +17,7 @@ trait StockFetcher {
     price
   }
 
-  private def request:HttpRequest =
+  private def request: HttpRequest =
     Http("http://dev.markitondemand.com/MODApis/Api/v2/Quote")
       .param("symbol", stockSymbol)
 
