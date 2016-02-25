@@ -15,7 +15,7 @@ trait PlotlyWriter {
 
   private def request(time: Instant, value: BigDecimal): HttpRequest = {
     val plotlyUrl = "https://plot.ly/clientresp"
-    val fmt = DateTimeFormat.forPattern("yyyy-MM-dd kk:mm")
+    val fmt = DateTimeFormat.forPattern("yyyy-MM-dd hh:mm")
     val timeStr = time.toString(fmt)
     val request = Http(plotlyUrl).postForm(Seq(
       "un" -> username,
